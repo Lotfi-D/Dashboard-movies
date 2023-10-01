@@ -23,8 +23,8 @@
 </template>
 
 <script lang="ts" setup>
-import { TMovie, TGenre } from '@/types/movies';
 import { defineProps } from 'vue';
+import { TMovie, TGenre } from '@/types/movies';
 import { genres } from '@/enum.json'
 import dayjs from 'dayjs';
 

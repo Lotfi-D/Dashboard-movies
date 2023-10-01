@@ -1,19 +1,6 @@
 <template>
   <div v-loading="isLoading" class="loader-home-page">
-    <div>
-      <div 
-        :style="`background-image: url(${displayImageHeroBanner()})`"
-        class="relative h-screen bg-cover bg-center" 
-      >
-      <div class="absolute inset-0 bg-black opacity-40"></div>
-      <div class="absolute inset-0 flex items-center text-white">
-        <div class="w-[40%] pl-5">
-          <h1 class="text-4xl font-semibold">Overview</h1>
-          <p class="text-1xl mt-3">{{ movieHeroBanner.overview }}</p>
-        </div>
-      </div>
-    </div>
-    </div>
+    <BaseHeroBannerMovie :movie-hero-banner-info="movieHeroBanner" />
     <div class="container mx-auto mt-6">
       <h2 class="text-2xl font-semibold">Trending</h2>
       <div class="flex flex-col md:flex-row md:items-start justify-center gap-4 items-center mt-5 mb-16">
@@ -26,6 +13,7 @@
 <script lang="ts" setup>
 import { onMounted, ref, reactive } from 'vue'
 import BaseCardMovie from '@/components/BaseCardMovie.vue'
+import BaseHeroBannerMovie from '@/components/BaseHeroBannerMovie.vue'
 import { moviesService } from '@/services'
 import { TMovie, TBackDropResponse } from '@/types/movies'
 import { ElNotification } from 'element-plus'
@@ -106,11 +94,6 @@ const getImageHeroBanner = async(movieId: number) => {
     console.error(error)
     ElNotification({ title: 'Error', message: 'An error occured', type: 'error', duration: 5000, })
   }
-}
-
-const displayImageHeroBanner = () => {
-  const urlImage = `https://www.themoviedb.org/t/p/original/${movieHeroBanner.display_hero_banner}`
-  return movieHeroBanner.display_hero_banner ? urlImage : ''
 }
 </script>
 
