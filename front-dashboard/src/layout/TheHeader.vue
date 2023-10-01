@@ -1,5 +1,5 @@
 <template>
-  <header class="bg-black p-4 w-full z-10 fixed">
+  <header class="bg-black p-4 w-full z-10">
     <div class="container flex items-center">
       <router-link to="/">
         <img

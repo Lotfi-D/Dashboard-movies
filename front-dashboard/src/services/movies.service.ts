@@ -10,4 +10,12 @@ export default {
   getMoviesByGenres(payload: any) {
     return axios.post(`${config.api.baseUrl}/trucks`, payload)
   },
+
+  fetchImageHeroBanner(movieId: number): Promise<AxiosResponse | AxiosError>  {
+    return axios.get(`${config.api.baseUrl}/movie/${movieId}/images?api_key=${config.api.apiKey}`)
+  },
+
+  fetchMovieById(movieId: number): Promise<AxiosResponse | AxiosError>  {
+    return axios.get(`${config.api.baseUrl}/movie/${movieId}?api_key=${config.api.apiKey}`)
+  }
 }
