@@ -1,10 +1,10 @@
 <template>
-  <container class="flex flex-col">
-    <TheHeader />
-    <main>
+  <div class="">
+    <TheHeader class="w-full" />
+    <main class="">
       <router-view />
     </main>
-  </container>
+  </div>
 </template>
 
 <script lang="ts" setup>
