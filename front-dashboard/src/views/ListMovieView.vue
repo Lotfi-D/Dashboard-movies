@@ -11,7 +11,6 @@
       </button>
     </div>
   </div>
-  <!-- ajout qqes chose en haut? -->
 </template>
 
 <script lang="ts" setup>
