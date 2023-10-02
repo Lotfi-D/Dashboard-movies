@@ -34,6 +34,7 @@ let movieHeroBanner = reactive<TMovie>({
 const isLoading = ref<boolean>(false)
 
 onMounted(async () => {
+  console.log('process.', process.env.VUE_APP_API_KEY)
   await getTrendMovies()
   await getHeroBannerMovie()
 })
@@ -83,7 +84,7 @@ const getHeroBannerMovie = async() => {
 const getImageHeroBanner = async(movieId: number) => {
   try {
     const response: any = await moviesService.fetchImageHeroBanner(movieId)
-    //we get all backdrops and we filter by iso en and the height 1080
+    //we get all backdrops and we filter by iso 'en' and the 'height' 1080
     //After that we choose randomly what backdrop to display
     const filterResponseByLanguage = response.data.backdrops.filter((backdrop: TBackDropResponse) => (
       backdrop.iso_639_1 === 'en' && backdrop.height === 1080
