@@ -1,4 +1,4 @@
-# fornt-dashboard
+# front-dashboard
 
 ## Project setup
 ```

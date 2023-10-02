@@ -4,7 +4,8 @@
     <div class="container mx-auto mt-6">
       <h2 class="text-2xl font-semibold">Trending</h2>
       <div class="flex flex-col md:flex-row md:items-start justify-center gap-4 items-center mt-5 mb-16">
-        <BaseCardMovie v-for="(movie, index) in moviesDisplayed" :key="index" :movie-info="movie" />
+        <BaseCardMovie v-for="(movie, index) in moviesDisplayed" :key="index"
+        :movie-info="movie" />
       </div>
     </div>
   </div>
@@ -34,7 +35,6 @@ let movieHeroBanner = reactive<TMovie>({
 const isLoading = ref<boolean>(false)
 
 onMounted(async () => {
-  console.log('process.', process.env.VUE_APP_API_KEY)
   await getTrendMovies()
   await getHeroBannerMovie()
 })

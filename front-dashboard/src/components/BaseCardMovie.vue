@@ -25,7 +25,7 @@
 <script lang="ts" setup>
 import { defineProps } from 'vue';
 import { TMovie, TGenre } from '@/types/movies';
-import { genres } from '@/enum.json'
+import { genresInMdb } from '@/enum.json'
 import dayjs from 'dayjs';
 
 interface IProps {
@@ -37,7 +37,7 @@ const props = defineProps<IProps>()
 const displayPoster = () => `https://www.themoviedb.org/t/p/w600_and_h900_bestv2/${props.movieInfo.poster_path}`
 
 const getGenreName = (genreId: number) => {
-  const findGenre = genres.find((genre: TGenre) => genre.id === genreId)
+  const findGenre = genresInMdb.find((genre: TGenre) => genre.id === genreId)
   return findGenre?.name
 }
 
