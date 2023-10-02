@@ -1,23 +1,10 @@
 <template>
-  <div v-loading="isLoading" class="loader-home-page">
-    <div>
-      <div 
-        :style="`background-image: url(${displayImageHeroBanner()})`"
-        class="relative h-screen bg-cover bg-center" 
-      >
-      <div class="absolute inset-0 bg-black opacity-40"></div>
-      <div class="absolute inset-0 flex items-center text-white">
-        <div class="w-[40%] pl-5">
-          <h1 class="text-4xl font-semibold">Overview</h1>
-          <p class="text-1xl mt-3">{{ movieHeroBanner.overview }}</p>
-        </div>
-      </div>
-    </div>
-    </div>
+  <div v-loading="isLoading" class="home-page">
+    <BaseHeroBannerMovie :movie-hero-banner-info="movieHeroBanner" />
     <div class="container mx-auto mt-6">
       <h2 class="text-2xl font-semibold">Trending</h2>
       <div class="flex flex-col md:flex-row md:items-start justify-center gap-4 items-center mt-5 mb-16">
-        <BaseCardMovie v-for="(movie, index) in moviesDisplayed" :key="index" :movie-info="movie" />
+        <BaseCardMovie v-for="(movie, index) in moviesDisplayed" :key="index" :movie-info="movie" :class-props="'w-[280px] md:w-[320px]'" />
       </div>
     </div>
   </div>
@@ -26,6 +13,7 @@
 <script lang="ts" setup>
 import { onMounted, ref, reactive } from 'vue'
 import BaseCardMovie from '@/components/BaseCardMovie.vue'
+import BaseHeroBannerMovie from '@/components/BaseHeroBannerMovie.vue'
 import { moviesService } from '@/services'
 import { TMovie, TBackDropResponse } from '@/types/movies'
 import { ElNotification } from 'element-plus'
@@ -95,7 +83,7 @@ const getHeroBannerMovie = async() => {
 const getImageHeroBanner = async(movieId: number) => {
   try {
     const response: any = await moviesService.fetchImageHeroBanner(movieId)
-    //we get all backdrops and we filter by iso en and the height 1080
+    //we get all backdrops and we filter by iso 'en' and the 'height' 1080
     //After that we choose randomly what backdrop to display
     const filterResponseByLanguage = response.data.backdrops.filter((backdrop: TBackDropResponse) => (
       backdrop.iso_639_1 === 'en' && backdrop.height === 1080
@@ -107,17 +95,14 @@ const getImageHeroBanner = async(movieId: number) => {
     ElNotification({ title: 'Error', message: 'An error occured', type: 'error', duration: 5000, })
   }
 }
-
-const displayImageHeroBanner = () => {
-  const urlImage = `https://www.themoviedb.org/t/p/original/${movieHeroBanner.display_hero_banner}`
-  return movieHeroBanner.display_hero_banner ? urlImage : ''
-}
 </script>
 
 <style lang="scss">
-.loader-home-page {
+.home-page {
+  //put it in a css file
   .el-loading-spinner {
-    top: 25% !important; 
+    position: sticky;
+    top: 50% !important; 
   }
   .el-loading-spinner .path {
     stroke: red;

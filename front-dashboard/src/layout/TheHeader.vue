@@ -8,7 +8,7 @@
           class="h-12"
         />
       </router-link>
-      <nav class="ml-5 space-x-4">
+      <nav class="ml-5 space-x-4 text-lg">
         <router-link to="/list" class="text-white">List</router-link>
         <router-link to="/favorites" class="text-white">Favorites</router-link>
       </nav>
