@@ -1,11 +1,10 @@
 <template>
-  <div v-loading="isLoading" class="loader-home-page">
+  <div v-loading="isLoading" class="home-page">
     <BaseHeroBannerMovie :movie-hero-banner-info="movieHeroBanner" />
     <div class="container mx-auto mt-6">
       <h2 class="text-2xl font-semibold">Trending</h2>
       <div class="flex flex-col md:flex-row md:items-start justify-center gap-4 items-center mt-5 mb-16">
-        <BaseCardMovie v-for="(movie, index) in moviesDisplayed" :key="index"
-        :movie-info="movie" />
+        <BaseCardMovie v-for="(movie, index) in moviesDisplayed" :key="index" :movie-info="movie" :class-props="'w-[280px] md:w-[320px]'" />
       </div>
     </div>
   </div>
@@ -99,9 +98,11 @@ const getImageHeroBanner = async(movieId: number) => {
 </script>
 
 <style lang="scss">
-.loader-home-page {
+.home-page {
+  //put it in a css file
   .el-loading-spinner {
-    top: 25% !important; 
+    position: sticky;
+    top: 50% !important; 
   }
   .el-loading-spinner .path {
     stroke: red;
