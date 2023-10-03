@@ -5,7 +5,7 @@
         <h2 class="text-2xl font-semibold">Favorites</h2>
         <ElInput
           v-model="filteredValue"
-          class="w-[240px]"
+          class="max-w-[240px]"
           placeholder="Search"
         />
       </div>
