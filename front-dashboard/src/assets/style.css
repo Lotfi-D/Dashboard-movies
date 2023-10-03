@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.el-loading-spinner {
+  position: sticky;
+  top: 50% !important; 
+}
+.el-loading-spinner .path {
+  stroke: red;
+}
