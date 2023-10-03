@@ -1,16 +1,48 @@
-# Movie Dashboard in Vue.js
+# Vue.js Movie Dashboard Project
 
-This project is a movie dashboard built using Vue.js. It allows you to view current movies, filter movies by categories, and manage your favorite movies. Follow the steps below to run the project.
+This project is a Vue.js-based movie dashboard with multiple pages and features. Follow these steps to set up and run the project.
 
-## Prerequisites
+## Getting Started
 
-Before getting started, make sure you have Node.js and npm installed on your system. You will also need an API key from The Movie Database (TMDb) to fetch movie data.
+1. Clone the project repository to your local machine.
 
-1. [TMDb API](https://www.themoviedb.org/documentation/api): Sign up to get your own API key.
+### Installing
 
-## Installation
+Enter in the ./front-dashboard folder.
 
-1. Clone this repository to your machine:
+Installation
 
-   ```bash
-   git clone https://github.com/your-username/movie-dashboard.git
+    npm install
+
+## Environment Configuration
+
+3. Create a `.env` file at the root of the project with the following content:
+`VUE_APP_API_KEY=yourApiKey`
+Replace `yourApiKey` with your actual API key from The Movie Database.
+
+## Running the Project
+
+5. Start the project
+
+    npm run serve
+6. Your Vue.js Movie Dashboard project should now be running locally. You can access it in your web browser by navigating to the URL provided by the development server (usually http://localhost:8080/).
+
+## Project Features
+
+Explore the different pages and features of the dashboard:
+
+### 1. Home Page
+
+- Banner hero showcasing featured content.
+- Display of four movies of the moment.
+
+### 2. Categories Page
+
+- Filter movies by categories.
+- 
+### 3. Favorites Page
+
+- View and manage your favorite movies.
+- Search bar to find movies in your favorites.
+
+## Enjoy using the Vue.js Movie Dashboard!
