@@ -1,14 +1,16 @@
 <template>
   <div v-loading="isLoading">
     <div class="container mx-auto mt-6">
-      <h2 class="text-2xl font-semibold">Favorites</h2>
-      <ElInput
+      <div class="flex justify-between">
+        <h2 class="text-2xl font-semibold">Favorites</h2>
+        <ElInput
           v-model="filteredValue"
           class="w-[360px]"
           placeholder="Search"
         />
-      <div>
-        <div v-if="favortesMoviesFiltered.length > 0" class="flex flex-col md:grid grid-cols-4 gap-4  justify-center gap-4 items-center mt-5 mb-16">
+      </div>
+      <div class="flex justify-center">
+        <div v-if="favortesMoviesFiltered.length > 0" class="flex flex-col md:grid grid-cols-4 gap-4  gap-4 items-center mt-5 mb-16">
           <BaseCardMovie 
             v-for="(movie, index) in favortesMoviesFiltered"
             :key="index"
