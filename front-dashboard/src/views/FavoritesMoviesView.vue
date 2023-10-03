@@ -19,7 +19,7 @@
             @delete-favorite="reload"
           />
         </div>
-        <div v-else>
+        <div v-else class="flex h-screen items-center text-xl">
           No favorite found
         </div>
       </div>

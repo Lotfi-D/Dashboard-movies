@@ -22,4 +22,4 @@ export const useMovieStore = defineStore('movie', () => {
     addToMyFavorites,
     deleteFromMyFavorites,
   }
-}, {persist: true})
+}, { persist: true })

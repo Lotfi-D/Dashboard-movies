@@ -2,11 +2,19 @@
   <div v-loading="isLoading" class="list-page">
     <BaseTabsMovie :tabs-info="tabsToDisplay" @change-tab="getMoviesByGenre">
       <div class="flex flex-col md:grid grid-cols-4 gap-4 mb-10 mt-5">
-        <BaseCardMovie v-for="(movie, index) in listMoviesByGenre" :key="index" :movie-info="movie" :class-props="'w-[280px] md:w-[300px]'" />
+        <BaseCardMovie 
+          v-for="(movie, index) in listMoviesByGenre" 
+          :key="index"
+          :movie-info="movie"
+          :class-props="'w-[280px] md:w-[300px]'"
+        />
       </div>
     </BaseTabsMovie>
     <div class="flex justify-center">
-      <button class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-2xl w-[50%] mb-5" @click="loadMoreMovies">
+      <button 
+        class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-2xl w-[50%] mb-5" 
+        @click="loadMoreMovies"
+      >
         Load more
       </button>
     </div>
@@ -41,7 +49,6 @@ const getMoviesByGenre = async(genreIdEmit: string) => {
   } finally {
     setTimeout(() => { isLoading.value = false }, 500)
   }
-  
 }
 
 const loadMoreMovies = async() => {
