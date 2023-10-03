@@ -10,11 +10,11 @@ This project is a Vue.js-based movie dashboard with multiple pages and features.
 
 2. Open you terminal
 
-    Enter in the ./front-dashboard folder.
+Enter in the ./front-dashboard folder.
 
-    Enter the command:
+Enter the command:
 
-    npm run serve
+    npm run install
 
 
 ## Environment Configuration
