@@ -96,16 +96,3 @@ const getImageHeroBanner = async(movieId: number) => {
   }
 }
 </script>
-
-<style lang="scss">
-.home-page {
-  //put it in a css file
-  .el-loading-spinner {
-    position: sticky;
-    top: 50% !important; 
-  }
-  .el-loading-spinner .path {
-    stroke: red;
-  }
-}
-</style>

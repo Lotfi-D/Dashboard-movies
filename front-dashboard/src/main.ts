@@ -1,10 +1,11 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import { createPinia } from 'pinia';
+import { createPinia } from 'pinia'
 import router from './router'
-import { ElLoading } from 'element-plus';
-import 'element-plus/dist/index.css';
+import { ElLoading } from 'element-plus'
+import 'element-plus/dist/index.css'
 import 'tailwindcss/tailwind.css'
+import './assets/style.css'; 
 
 const pinia = createPinia();
 

@@ -1,7 +1,8 @@
 <template>
   <div v-loading="isLoading" class="list-page">
+    MOVIES {{ displayFavoritesMovies }}
     <BaseTabsMovie :tabs-info="tabsToDisplay" @change-tab="getMoviesByGenre">
-      <div class="grid grid-cols-4 gap-4 mb-5">
+      <div class="grid grid-cols-4 gap-4 mb-10 mt-5">
         <BaseCardMovie v-for="(movie, index) in listMoviesByGenre" :key="index" :movie-info="movie" :class-props="'w-[280px] md:w-[300px]'" />
       </div>
     </BaseTabsMovie>
@@ -14,7 +15,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, onMounted } from 'vue'
+import { ref } from 'vue'
 import { moviesService } from '@/services'
 import BaseTabsMovie from '@/components/BaseTabsMovie.vue'
 import BaseCardMovie from '@/components/BaseCardMovie.vue'
@@ -22,16 +23,16 @@ import { TMovie, TGenre } from '@/types/movies';
 import { genreInApp } from '@/enum.json'
 import { ElNotification } from 'element-plus';
 
+import { storeToRefs } from 'pinia'
+import { useMovieStore } from '@/stores/movies'
+const store = useMovieStore()
+const { displayFavoritesMovies } = storeToRefs(store)
+
 const tabsToDisplay = ref<TGenre[]>(genreInApp)
 const listMoviesByGenre = ref<TMovie[]>([])
 const currentPage = ref<number>(1)
 const genreId = ref<string | null>(null)
 const isLoading = ref<boolean>(false)
-
-onMounted(async() => {
-  // const genreId = 'Western'
-  // await getMoviesByGenre(genreId)
-})
 
 const getMoviesByGenre = async(genreIdEmit: string) => {
   try {
@@ -68,13 +69,6 @@ const loadMoreMovies = async() => {
 
 <style lang="scss">
 .list-page {
-  .el-loading-spinner {
-    position: sticky;
-    top: 50% !important; 
-  }
-  .el-loading-spinner .path {
-    stroke: red;
-  }
   .el-tabs {
     --el-tabs-header-height: 60px;
     .el-tabs__nav-scroll {
