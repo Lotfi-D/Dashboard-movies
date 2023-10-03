@@ -26,7 +26,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import { storeToRefs } from 'pinia'
 import { ElInput } from 'element-plus'
 import { useMovieStore } from '@/stores/movies'
@@ -44,6 +44,10 @@ const favortesMoviesFiltered = computed(() => {
   return listFavoritesMovies.value.filter((favorite: TMovie) =>
     favorite.title.toLowerCase().includes(filteredValueLowerCase)
   )
+})
+
+onMounted(() => {
+  reload()
 })
 
 const reload = () => {
