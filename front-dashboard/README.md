@@ -45,7 +45,7 @@ Explore the different pages and features of the dashboard:
 ### 2. Categories Page
 
 - Filter movies by categories.
-- 
+  
 ### 3. Favorites Page
 
 - View and manage your favorite movies.
