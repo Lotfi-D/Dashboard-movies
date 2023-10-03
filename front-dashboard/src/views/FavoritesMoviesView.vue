@@ -1,25 +1,24 @@
 <template>
   <div v-loading="isLoading">
-    <div>
-      <h1 class="mb-1">My Favorites</h1>
+    <div class="container mx-auto mt-6">
+      <h2 class="text-2xl font-semibold">Favorites</h2>
       <ElInput
-        v-model="filteredValue"
-        class="w-[360px]"
-        placeholder="Search"
-      />
-    </div>
-    <div class="flex justify-center">
-      <div v-if="favortesMoviesFiltered.length > 0" class="grid grid-cols-4 gap-4 mb-10 mt-5">
-        <BaseCardMovie 
-          v-for="(movie, index) in favortesMoviesFiltered"
-          :key="index" 
-          :movie-info="movie"
-          :class-props="'w-[280px] md:w-[300px]'" 
-          @deleteFavorite="reload"
+          v-model="filteredValue"
+          class="w-[360px]"
+          placeholder="Search"
         />
-      </div>
-      <div v-else class="absolute top-[50%]">
-        No favorite found
+      <div>
+        <div v-if="favortesMoviesFiltered.length > 0" class="flex flex-col md:grid grid-cols-4 gap-4  justify-center gap-4 items-center mt-5 mb-16">
+          <BaseCardMovie 
+            v-for="(movie, index) in favortesMoviesFiltered"
+            :key="index"
+            :movie-info="movie"
+            :class-props="'w-[280px] md:w-[320px]'"
+          />
+        </div>
+        <div v-else>
+          No favorite found
+        </div>
       </div>
     </div>
   </div>

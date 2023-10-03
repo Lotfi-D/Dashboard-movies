@@ -1,7 +1,7 @@
 <template>
   <div v-loading="isLoading" class="list-page">
     <BaseTabsMovie :tabs-info="tabsToDisplay" @change-tab="getMoviesByGenre">
-      <div class="grid grid-cols-4 gap-4 mb-10 mt-5">
+      <div class="flex flex-col md:grid grid-cols-4 gap-4 mb-10 mt-5">
         <BaseCardMovie v-for="(movie, index) in listMoviesByGenre" :key="index" :movie-info="movie" :class-props="'w-[280px] md:w-[300px]'" />
       </div>
     </BaseTabsMovie>
