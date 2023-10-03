@@ -13,7 +13,7 @@ This project is a Vue.js-based movie dashboard with multiple pages and features.
     Enter in the ./front-dashboard folder and enter the command:
 
 ```
-npm run serve
+npm run install
 ```
 
 
@@ -27,7 +27,9 @@ Replace `yourApiKey` with your actual API key from The Movie Database.
 
 4. Start the project
     
+   ```
     npm run serve
+    ```
    
 6. Your Vue.js Movie Dashboard project should now be running locally. You can access it in your web browser by navigating to the URL provided by the development server (usually http://localhost:8080/).
 
