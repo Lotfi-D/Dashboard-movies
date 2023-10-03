@@ -14,6 +14,7 @@
             :key="index"
             :movie-info="movie"
             :class-props="'w-[280px] md:w-[320px]'"
+            @delete-favorite="reload"
           />
         </div>
         <div v-else>
