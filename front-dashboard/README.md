@@ -8,9 +8,11 @@ This project is a Vue.js-based movie dashboard with multiple pages and features.
 
 ### Installing
 
+2. Open you terminal
+
 Enter in the ./front-dashboard folder.
 
-Installation
+Enter the command:
 
     npm install
 
@@ -22,9 +24,10 @@ Replace `yourApiKey` with your actual API key from The Movie Database.
 
 ## Running the Project
 
-Start the project
+4. Start the project
 
     npm run serve
+   
 6. Your Vue.js Movie Dashboard project should now be running locally. You can access it in your web browser by navigating to the URL provided by the development server (usually http://localhost:8080/).
 
 ## Project Features
@@ -46,3 +49,15 @@ Explore the different pages and features of the dashboard:
 - Search bar to find movies in your favorites.
 
 ## Enjoy using the Vue.js Movie Dashboard!
+
+## Project Technologies
+
+This project incorporates the following technologies:
+
+- **Vue3:** A progressive JavaScript framework for building user interfaces.
+
+- **Tailwind CSS:** A utility-first CSS framework for quickly designing custom user interfaces.
+
+- **Pinia:** A state management solution for Vue.js applications, providing a store pattern.
+
+- **Element UI Plus:** A UI component library for Vue.js that enhances the capabilities of the Element UI framework.
