@@ -22,7 +22,7 @@ Replace `yourApiKey` with your actual API key from The Movie Database.
 
 ## Running the Project
 
-5. Start the project
+Start the project
 
     npm run serve
 6. Your Vue.js Movie Dashboard project should now be running locally. You can access it in your web browser by navigating to the URL provided by the development server (usually http://localhost:8080/).
