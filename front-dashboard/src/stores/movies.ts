@@ -5,15 +5,21 @@ import { ref, computed } from 'vue'
 export const useMovieStore = defineStore('movie', () => {
   const favoritesMovies = ref<TMovie[]>([])
    
-  const displayFavoritesMovies = computed(() => favoritesMovies.value)
+  const listFavoritesMovies = computed(() => favoritesMovies.value)
 
   function addToMyFavorites(movie: TMovie) {
     favoritesMovies.value.push(movie)
   }
 
+  function deleteFromMyFavorites(movieId: number) {
+    const index = favoritesMovies.value.findIndex((movie: TMovie) => movie.id === movieId)
+    favoritesMovies.value.splice(index, 1)
+  }
+
   return { 
     favoritesMovies, 
-    displayFavoritesMovies,
+    listFavoritesMovies,
     addToMyFavorites,
+    deleteFromMyFavorites,
   }
 }, {persist: true})

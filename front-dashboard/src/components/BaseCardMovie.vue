@@ -30,21 +30,28 @@
 </template>
 
 <script lang="ts" setup>
-import { defineProps, ref } from 'vue';
+import { defineProps, computed } from 'vue';
 import BaseFavoriteButtonMovie from './BaseFavoriteButtonMovie.vue'
 import { TMovie, TGenre } from '@/types/movies';
 import { genresInMdb } from '@/enum.json'
 import { ElScrollbar } from 'element-plus';
+
 import dayjs from 'dayjs';
 
-// import { storeToRefs } from 'pinia'
+import { storeToRefs } from 'pinia'
 import { useMovieStore } from '@/stores/movies'
 
 const store = useMovieStore()
 
-// const { doubleCount, displayFavoritesMovies } = storeToRefs(store)
+const { listFavoritesMovies } = storeToRefs(store)
+const { addToMyFavorites, deleteFromMyFavorites } = store
 
-const { addToMyFavorites } = store
+const isFavorite = computed(() => {
+  const idsFavoritesMovies = listFavoritesMovies.value.map((movie: TMovie) => movie.id)
+  return idsFavoritesMovies.includes(props.movieInfo.id)
+})
+
+const classColorButton = computed(() => isFavorite.value ? 'text-red-600' : 'text-white')
 
 interface IProps {
   movieInfo: TMovie,
@@ -53,7 +60,6 @@ interface IProps {
 
 const props = defineProps<IProps>()
 
-const classColorButton = ref<string>('')
 
 const displayPoster = () => `https://www.themoviedb.org/t/p/w600_and_h900_bestv2/${props.movieInfo.poster_path}`
 
@@ -65,8 +71,9 @@ const getGenreName = (genreId: number) => {
 }
 
 const addOrDeleteToFavorites = () => {
-  console.log('salut', props.movieInfo.title)
-  addToMyFavorites(props.movieInfo)
+  if (props.movieInfo.id) {
+    isFavorite.value ? deleteFromMyFavorites(props.movieInfo.id) : addToMyFavorites(props.movieInfo) 
+  }
 }
 </script>
 
@@ -76,7 +83,6 @@ const addOrDeleteToFavorites = () => {
     .btn-favorite {
       position: absolute;
       font-size: 16px;
-      // cursor: pointer;
     }
   }
 }
