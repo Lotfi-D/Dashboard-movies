@@ -1,11 +1,11 @@
 <template>
-  <div v-loading="isLoading">
-    <div class="container mx-auto mt-6">
-      <div class="flex justify-between">
+  <div v-loading="isLoading" class="container mx-auto mt-6">
+    <div>
+      <div class="flex justify-between ml-5 mr-10">
         <h2 class="text-2xl font-semibold">Favorites</h2>
         <ElInput
           v-model="filteredValue"
-          class="w-[360px]"
+          class="w-[240px]"
           placeholder="Search"
         />
       </div>
