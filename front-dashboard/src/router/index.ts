@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import ListMovie from '../views/ListMovieView.vue'
+import ListMovies from '../views/ListMoviesView.vue'
+import FavoritesMovies from '../views/FavoritesMoviesView.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -10,11 +11,13 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: '/list',
-    name: 'listmovie',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: ListMovie
+    name: 'listMovies',
+    component: ListMovies
+  },
+  {
+    path: '/favorites',
+    name: 'favoritesMovie',
+    component: FavoritesMovies
   },
   {
     path: '/about',

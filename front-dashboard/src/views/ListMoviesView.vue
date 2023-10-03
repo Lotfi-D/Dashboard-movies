@@ -1,6 +1,5 @@
 <template>
   <div v-loading="isLoading" class="list-page">
-    MOVIES {{ displayFavoritesMovies }}
     <BaseTabsMovie :tabs-info="tabsToDisplay" @change-tab="getMoviesByGenre">
       <div class="grid grid-cols-4 gap-4 mb-10 mt-5">
         <BaseCardMovie v-for="(movie, index) in listMoviesByGenre" :key="index" :movie-info="movie" :class-props="'w-[280px] md:w-[300px]'" />
@@ -22,11 +21,6 @@ import BaseCardMovie from '@/components/BaseCardMovie.vue'
 import { TMovie, TGenre } from '@/types/movies';
 import { genreInApp } from '@/enum.json'
 import { ElNotification } from 'element-plus';
-
-import { storeToRefs } from 'pinia'
-import { useMovieStore } from '@/stores/movies'
-const store = useMovieStore()
-const { displayFavoritesMovies } = storeToRefs(store)
 
 const tabsToDisplay = ref<TGenre[]>(genreInApp)
 const listMoviesByGenre = ref<TMovie[]>([])
