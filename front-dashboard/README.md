@@ -12,9 +12,9 @@ This project is a Vue.js-based movie dashboard with multiple pages and features.
 
     Enter in the ./front-dashboard folder and enter the command:
 
-```
-npm run install
-```
+    ```
+    npm run install
+    ```
 
 
 ## Environment Configuration
