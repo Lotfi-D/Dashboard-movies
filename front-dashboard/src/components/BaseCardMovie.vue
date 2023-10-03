@@ -30,7 +30,7 @@
 </template>
 
 <script lang="ts" setup>
-import { defineProps, computed } from 'vue';
+import { defineProps, defineEmits, computed } from 'vue';
 import BaseFavoriteButtonMovie from './BaseFavoriteButtonMovie.vue'
 import { TMovie, TGenre } from '@/types/movies';
 import { genresInMdb } from '@/enum.json'
@@ -60,6 +60,8 @@ interface IProps {
 
 const props = defineProps<IProps>()
 
+const emit = defineEmits(['deleteFavorite'])
+
 
 const displayPoster = () => `https://www.themoviedb.org/t/p/w600_and_h900_bestv2/${props.movieInfo.poster_path}`
 
@@ -72,7 +74,13 @@ const getGenreName = (genreId: number) => {
 
 const addOrDeleteToFavorites = () => {
   if (props.movieInfo.id) {
-    isFavorite.value ? deleteFromMyFavorites(props.movieInfo.id) : addToMyFavorites(props.movieInfo) 
+    if (isFavorite.value) {
+      deleteFromMyFavorites(props.movieInfo.id)
+      emit('deleteFavorite')
+    } else {
+      addToMyFavorites(props.movieInfo)
+    }
+    // isFavorite.value ? deleteFromMyFavorites(props.movieInfo.id) : addToMyFavorites(props.movieInfo) 
   }
 }
 </script>

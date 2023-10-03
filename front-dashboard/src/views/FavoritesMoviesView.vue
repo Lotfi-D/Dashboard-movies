@@ -15,6 +15,7 @@
           :key="index" 
           :movie-info="movie"
           :class-props="'w-[280px] md:w-[300px]'" 
+          @deleteFavorite="reload"
         />
       </div>
       <div v-else class="absolute top-[50%]">
@@ -43,6 +44,10 @@ const favortesMoviesFiltered = computed(() => {
   return listFavoritesMovies.value.filter((favorite: TMovie) =>
     favorite.title.toLowerCase().includes(filteredValueLowerCase)
   )
+})
 
-}) 
+const reload = () => {
+  isLoading.value = true
+  setTimeout(() => { isLoading.value = false }, 500)
+}
 </script>
