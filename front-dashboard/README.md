@@ -14,6 +14,8 @@ This project is a Vue.js-based movie dashboard with multiple pages and features.
 
 Enter the command:
 
+
+
     npm run install
 
 
