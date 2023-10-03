@@ -30,8 +30,8 @@
         >
           {{ getGenreName(genreId) }}
         </span>
-    </div>
-  </ElScrollbar>
+      </div>
+    </ElScrollbar>
   </div>
 </template>
 

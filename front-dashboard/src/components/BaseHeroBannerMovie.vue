@@ -3,7 +3,7 @@
     :style="`background-image: url(${displayImageHeroBanner()})`"
     class="relative h-screen bg-cover bg-center" 
   >
-    <div class="absolute inset-0 bg-black opacity-40"></div>
+    <div class="absolute inset-0 bg-black opacity-40" />
     <div class="absolute inset-0 flex items-center text-white">
       <div class="w-[40%] pl-5">
         <h1 class="text-4xl font-semibold">Overview</h1>
@@ -18,7 +18,7 @@ import { defineProps } from 'vue';
 import { TMovie } from '@/types/movies';
 
 interface IProps {
-  movieHeroBannerInfo: TMovie;
+  movieHeroBannerInfo: TMovie
 }
 
 const props = defineProps<IProps>()
